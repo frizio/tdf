@@ -20,7 +20,9 @@
     <!-- Form controls -->
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control" [(ngModel)]="userModel.name" name="username">
+      <input type="text" class="form-control" [(ngModel)]="userModel.name" name="username" #name #namepp="ngModel" required >
+      <p><b>Tracking state classes:</b> {{name.className}}</p>
+      <p><b>Tracking state properties:</b> untouched={{namepp.untouched}} pristine={{namepp.pristine}} valid={{namepp.valid}}</p>
     </div>
 
     <div class="form-group">
