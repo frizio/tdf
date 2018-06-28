@@ -5,26 +5,34 @@
 
 
 <div class="container-fluid">
-  <!-- Form controls -->
-  <form>
+  
+  <!-- 
+    Data binding: ngForm, ngModel, ngModelGroup
+    #userForm is a template reference variable 
+  -->
 
+  <form #userForm="ngForm">
+
+    <p>{{userForm.value | json}}</p>
+
+    <!-- Form controls -->
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" ngModel name="username">
     </div>
 
     <div class="form-group">
       <label>Email</label>
-      <input type="email" class="form-control">
+      <input type="email" class="form-control" ngModel name="email">
     </div>
 
     <div class="form-group">
       <label>Phone number</label>
-      <input type="tel" class="form-control">
+      <input type="tel" class="form-control" ngModel name="phone">
     </div>
 
     <div class="form-group">
-      <select class="custom-select">
+      <select class="custom-select" ngModel name="topic">
         <option selected>I'm interested in</option>
         <option *ngFor="let topic of topics">{{topic}}</option>
       </select>
@@ -33,19 +41,42 @@
     <div class="mb-3">
       <label>Time preference</label>
       <div class="form-check">
-        <input type="radio" name="timePreference" value="morning" class="form-check-input">
+        <input type="radio" class="form-check-input" ngModel name="timePreference" value="morning">
         <label class="form-check-label">Morning (9AM - 12PM)</label>
       </div>
       <div class="form-check">
-        <input type="radio" name="timePreference" value="evening" class="form-check-input">
+        <input type="radio" class="form-check-input" ngModel name="timePreference" value="evening">
         <label class="form-check-label">Evening (5PM - 8PM)</label>
       </div>
     </div>
 
     <div class="form-check mb-3">
-      <input type="checkbox" class="form-check-input">
+      <input type="checkbox" class="form-check-input" ngModel name="subscribe">
         <label class="form-check-label">Send me promotional offers</label>
     </div>
+
+    <!--- Model group example for address -->
+    <!--
+    <div ngModelGroup="address">
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" ngModel name="street">
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" ngModel name="city">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input type="text" class="form-control" ngModel name="state">
+      </div>
+      <div class="form-group">
+        <label>Postal code</label>
+        <input type="text" class="form-control" ngModel name="postalCode">
+      </div>
+    </div>
+     -->
+
 
     <button class="btn btn-primary">Submit</button>
 
