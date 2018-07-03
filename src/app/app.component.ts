@@ -12,9 +12,19 @@ export class AppComponent {
 
   topics = ['Angular', 'React', 'Vue'];
 
+  topicHasError = true;
+
   // Instance of the model
-  userModel = new User('Max', 'max@gmail.com', 390918983067, '', 'morning', true);
+  userModel = new User('Max', 'max@gmail.com', 390918983067, 'default', 'morning', true);
 
   // Bind the user model to the enrollment form using interpolation
+
+  validateTopic(value) {
+    if (value === 'default') {
+      this.topicHasError = true;
+    } else {
+      this.topicHasError = false;
+    }
+  }
 
 }
