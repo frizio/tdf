@@ -16,7 +16,8 @@
     <p>Angular form values: {{userForm.value | json}}</p>
     <hr/>
     <p>User model values {{userModel | json}}</p>
-
+    <hr/>
+    <p>Form is valid? {{userForm.form.valid && !topicHasError}}</p>
     <!-- Form controls -->
     <div class="form-group">
       <label>Name</label>
@@ -96,7 +97,9 @@
      -->
 
 
-    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary" [disabled]="userForm.form.invalid || topicHasError">
+      Submit
+    </button>
 
 </form>
 

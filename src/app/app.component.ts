@@ -15,7 +15,7 @@ export class AppComponent {
   topicHasError = true;
 
   // Instance of the model
-  userModel = new User('Max', 'max@gmail.com', 390918983067, 'default', 'morning', true);
+  userModel = new User('Max', 'max@gmail.com', 1234567890, 'default', 'morning', true);
 
   // Bind the user model to the enrollment form using interpolation
 
