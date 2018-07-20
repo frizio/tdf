@@ -11,7 +11,7 @@
     #userForm is a template reference variable 
   -->
 
-  <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form #userForm="ngForm" *ngIf="!formSubmitted" (ngSubmit)="onSubmit()" novalidate>
 
     <p>Angular form values: {{userForm.value | json}}</p>
     <hr/>

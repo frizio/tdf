@@ -8,7 +8,7 @@ import { User } from './user';
 export class EnrollmentService {
 
   // The URL where we will be post the data
-  _url = '';
+  _url = 'http://localhost:3000/enroll';
 
   constructor(private _http: HttpClient) { }
 

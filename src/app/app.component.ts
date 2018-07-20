@@ -15,6 +15,8 @@ export class AppComponent {
 
   topicHasError = true;
 
+  formSubmitted = false;
+
   // Instance of the model
   userModel = new User('Max', 'max@gmail.com', 1234567890, 'default', 'morning', true);
   // Bind the user model to the enrollment form using interpolation
@@ -32,14 +34,17 @@ export class AppComponent {
   onSubmit() {
     console.log("Submitting form data...");
     console.log(this.userModel);
-    console.log("...using a Service to submit this data to a server");
 
+    console.log("Disabling form");
+    this.formSubmitted = true;
+    
+    console.log("...using a Service to submit this data to a server");
     this._enrollmentService.enroll(this.userModel)
       .subscribe(
         data => console.log("success!", data),
         error => console.log("Error! ", error)
       )
-      
+
   }
 
 }
