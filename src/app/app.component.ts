@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './user';
+import { EnrollmentService } from './enrollment.service';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,9 @@ export class AppComponent {
 
   // Instance of the model
   userModel = new User('Max', 'max@gmail.com', 1234567890, 'default', 'morning', true);
-
   // Bind the user model to the enrollment form using interpolation
+
+  constructor(private _enrollmentService: EnrollmentService) { }
 
   validateTopic(value) {
     if (value === 'default') {
@@ -25,6 +27,19 @@ export class AppComponent {
     } else {
       this.topicHasError = false;
     }
+  }
+
+  onSubmit() {
+    console.log("Submitting form data...");
+    console.log(this.userModel);
+    console.log("...using a Service to submit this data to a server");
+
+    this._enrollmentService.enroll(this.userModel)
+      .subscribe(
+        data => console.log("success!", data),
+        error => console.log("Error! ", error)
+      )
+      
   }
 
 }
