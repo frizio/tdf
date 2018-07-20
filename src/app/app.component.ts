@@ -17,6 +17,8 @@ export class AppComponent {
 
   formSubmitted = false;
 
+  errorMsg = '';
+
   // Instance of the model
   userModel = new User('Max', 'max@gmail.com', 1234567890, 'default', 'morning', true);
   // Bind the user model to the enrollment form using interpolation
@@ -42,7 +44,7 @@ export class AppComponent {
     this._enrollmentService.enroll(this.userModel)
       .subscribe(
         data => console.log("success!", data),
-        error => console.log("Error! ", error)
+        error => this.errorMsg = error.statusText //console.log("Error! ", error)
       )
 
   }

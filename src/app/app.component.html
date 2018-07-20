@@ -11,6 +11,10 @@
     #userForm is a template reference variable 
   -->
 
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+
   <form #userForm="ngForm" *ngIf="!formSubmitted" (ngSubmit)="onSubmit()" novalidate>
 
     <p>Angular form values: {{userForm.value | json}}</p>
